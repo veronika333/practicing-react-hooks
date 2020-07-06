@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 import NameTag from "./componnents/nameTag";
@@ -23,7 +23,17 @@ const removeInlineStyle = BaseComponent => props => {
 }
 const RemoveInline = removeInlineStyle(NameTag);
 
+
 function App() {
+const [age, setAge] = useState(21);
+const ageUpHandler = () => {
+  setAge(age + 1)
+}
+const ageDownHandler = () => {
+  setAge(age - 1)
+}
+
+
   let x = 0;
   console.log("hi");
   return (
@@ -34,6 +44,9 @@ function App() {
       <RemoveInline  style={{color: "red"}} name="Jill" lastName="Jillson"></RemoveInline>
       <NameTag name="" lastName=""></NameTag>
       <Input placeholder="Enter here" type="text"></Input>
+      <h3>My age is {age}</h3>
+      <button onClick={ageUpHandler}>Age Up</button>
+      <button onClick={ageDownHandler}>Age Down</button>
     </div>
   );
 }
