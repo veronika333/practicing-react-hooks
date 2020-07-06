@@ -20,8 +20,8 @@ const NameTag = (props) => {
     }
     return ( 
         <div className="name">
-    <h3>Name: {props.name}</h3>
-    <h3>Last name: {props.lastName}</h3>
+    <h3 style={props.style}>Name: {props.name}</h3>
+    <h3 style={props.style}>Last name: {props.lastName}</h3>
     </div>
      );
 }
