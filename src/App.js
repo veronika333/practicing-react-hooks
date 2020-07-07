@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.scss";
 import NameTag from "./componnents/nameTag";
 import Input from "./componnents/Input";
+import GroceryList from "./componnents/GroceryList";
 
 const nameStyle = {color: "blue", border: "blue solid 2px"};
 const MakeGreen = BaseComponent => props => {
@@ -59,6 +60,7 @@ const ageDownHandler = () => {
       <h3>My age is {age}</h3>
       <button onClick={ageUpHandler}>Age Up</button>
       <button onClick={ageDownHandler}>Age Down</button>
+<GroceryList />
     </div>
   );
 }
