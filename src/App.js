@@ -26,7 +26,9 @@ const RemoveInline = removeInlineStyle(NameTag);
 const initialNames = [
   {firstName: "Peter", lastName: "Peterson"},
   {firstName: "John", lastName: "Johnson"},
-  {firstName: "Jill", lastName: "Jillson"}
+  {firstName: "Jill", lastName: "Jillson"},
+  {firstName: "Mary", lastName: "Maryson"},
+  {firstName: "", lastName: ""}
 ]
 
 function App() {
@@ -45,10 +47,15 @@ const ageDownHandler = () => {
   return (
     <div className="App">
       <h1 className="title name">Hello world</h1>
-      <GreenTagName name={name[0].firstName} lastName={name[0].lastName}></GreenTagName>
+      {
+        name.map((v, i) => {
+          return <NameTag key={`${i} ${v.firstName} ${v.lastName}`} firstName={v.firstName} lastName={v.lastName} />
+        })
+      }
+      {/* <GreenTagName name={name[0].firstName} lastName={name[0].lastName}></GreenTagName>
       <NameTag name={name[1].firstName} lastName={name[1].lastName}></NameTag>
-      <RemoveInline  style={{color: "red"}} name={name[2].firstName} lastName={name[2].lastName}></RemoveInline>
-      <NameTag name="" lastName=""></NameTag>
+      <RemoveInline  style={{color: "red"}} name={name[2].firstName} lastName={name[2].lastName}></RemoveInline> */}
+      {/* <NameTag name="" lastName=""></NameTag> */}
       <Input placeholder="Enter here" type="text"></Input>
       <h3>My age is {age}</h3>
       <button onClick={ageUpHandler}>Age Up</button>

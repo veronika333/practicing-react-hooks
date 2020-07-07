@@ -3,16 +3,16 @@ import React from 'react';
 
 
 const NameTag = (props) => {
-    if (!props.name && !props.lastName) {
+    if (!props.firstName && !props.lastName) {
         return (
             <div className="name">
             <h3>No user</h3></div>
         )
     }
-    if (props.name === "John") {
+    if (props.firstName === "John") {
         return (
             <div className="name">
-    <h3>Name: {props.name}</h3>
+    <h3>Name: {props.firstName}</h3>
     <h3>Last name: {props.lastName}</h3>
     <h3 style={{color: "red"}}>VIP User</h3>
     </div>
@@ -20,7 +20,7 @@ const NameTag = (props) => {
     }
     return ( 
         <div className="name">
-    <h3 style={props.style}>Name: {props.name}</h3>
+    <h3 style={props.style}>Name: {props.firstName}</h3>
     <h3 style={props.style}>Last name: {props.lastName}</h3>
     </div>
      );
