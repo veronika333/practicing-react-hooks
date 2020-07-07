@@ -27,7 +27,6 @@ const initialNames = [
   {firstName: "Peter", lastName: "Peterson"},
   {firstName: "John", lastName: "Johnson"},
   {firstName: "Jill", lastName: "Jillson"},
-  {firstName: "Mary", lastName: "Maryson"},
   {firstName: "", lastName: ""}
 ]
 
@@ -46,7 +45,7 @@ const ageDownHandler = () => {
   // console.log("hi");
   return (
     <div className="App">
-      <h1 className="title name">Hello world</h1>
+      <h1 className="title name">Props, conditional rendering, useState, map function, onClick events</h1>
       {
         name.map((v, i) => {
           return <NameTag key={`${i} ${v.firstName} ${v.lastName}`} firstName={v.firstName} lastName={v.lastName} />

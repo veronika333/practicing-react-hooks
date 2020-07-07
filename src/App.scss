@@ -1,4 +1,4 @@
-$color: yellow;
+$color: brown;
 
 .App {
   text-align: center;
@@ -47,7 +47,18 @@ border-color: $color;
 }
 .name {
   border: 1px solid gray;
-  width: 300px;
+  width: 700px;
   margin: 1px auto;
 
+}
+button {
+  background-color: hotpink;
+  color: black;
+  margin: 3px 3px 6px 3px;
+  font-weight: bold;
+padding: 3px;
+border-radius: 2px;
+}
+body {
+  background-color: rgb(214, 241, 252);
 }
