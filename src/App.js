@@ -23,9 +23,16 @@ const removeInlineStyle = BaseComponent => props => {
 }
 const RemoveInline = removeInlineStyle(NameTag);
 
+const initialNames = [
+  {firstName: "Peter", lastName: "Peterson"},
+  {firstName: "John", lastName: "Johnson"},
+  {firstName: "Jill", lastName: "Jillson"}
+]
 
 function App() {
 const [age, setAge] = useState(21);
+const [name, setName] = useState(initialNames);
+
 const ageUpHandler = () => {
   setAge(age + 1)
 }
@@ -33,15 +40,14 @@ const ageDownHandler = () => {
   setAge(age - 1)
 }
 
-
-  let x = 0;
-  console.log("hi");
+  // let x = 0;
+  // console.log("hi");
   return (
     <div className="App">
       <h1 className="title name">Hello world</h1>
-      <GreenTagName name="Peter" lastName="Peterson"></GreenTagName>
-      <NameTag name="John" lastName="Johnson"></NameTag>
-      <RemoveInline  style={{color: "red"}} name="Jill" lastName="Jillson"></RemoveInline>
+      <GreenTagName name={name[0].firstName} lastName={name[0].lastName}></GreenTagName>
+      <NameTag name={name[1].firstName} lastName={name[1].lastName}></NameTag>
+      <RemoveInline  style={{color: "red"}} name={name[2].firstName} lastName={name[2].lastName}></RemoveInline>
       <NameTag name="" lastName=""></NameTag>
       <Input placeholder="Enter here" type="text"></Input>
       <h3>My age is {age}</h3>
