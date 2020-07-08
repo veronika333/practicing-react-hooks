@@ -24,14 +24,30 @@ const removeOneProduct = product.filter(value => value.name !== e.target.name);
 setProduct(removeOneProduct);
 }
 
+const [editable, setEditable] = useState(false);
+const makeEditable = () => {
+    setEditable(true);
+}
+const saveNewProduct = (e, index) => {
+if (e.key === "Enter") {
+    setEditable(false);
+    const copyProducts = [...product];
+    copyProducts[index].name = e.target.value;
+    
+}
+}
     return ( 
         <div>
         <h1>Grocery List</h1>
         <h2>Click the button in the bottom and remove all the products, which are over 250 calories</h2>
         <h2>Or click the button and remove individual product</h2>
+        <h2>Double click on the product, edit it and click enter</h2>
         {
             product.map((value, index) => {
-               return <GroceryItem key={`${index} ${value.name} ${value.calories}`} name={value.name} calories={value.calories} onClick={removeOne}  />
+               return <GroceryItem key={`${index} ${value.name} ${value.calories}`} name={value.name} calories={value.calories} onClick={removeOne} editable={editable}
+               onDoubleClick={makeEditable}
+               onKeyPress={saveNewProduct}
+               index={index} />
             })
         }
         <button onClick={removeUnhealthy}>Remove Unhealthy Over 250 Calories</button>
