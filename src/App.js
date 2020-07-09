@@ -4,6 +4,7 @@ import "./App.scss";
 import NameTag from "./componnents/nameTag";
 import Input from "./componnents/Input";
 import GroceryList from "./componnents/GroceryList";
+import Form from "./componnents/Form";
 
 const nameStyle = {color: "blue", border: "blue solid 2px"};
 const MakeGreen = BaseComponent => props => {
@@ -61,6 +62,7 @@ const ageDownHandler = () => {
       <button onClick={ageUpHandler}>Age Up</button>
       <button onClick={ageDownHandler}>Age Down</button>
 <GroceryList />
+<Form />
     </div>
   );
 }
