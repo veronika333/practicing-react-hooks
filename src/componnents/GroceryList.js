@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GroceryItem from "./GroceryItem";
+import useProduct from "../hooks/useProduct";
 
 const groceries = [
     {name: "tomatos", calories: 50},
@@ -10,18 +11,22 @@ const groceries = [
 ]
 
 const GroceryList = () => {
-    const [product, setProduct] = useState(groceries);
+    // const [product, setProduct] = useState(groceries);
+    const products = useProduct(groceries);
+
 const removeUnhealthy = (e) => {
 // const copyProduct = [...product];
 // copyProduct.filter(value => value.calories <= 300);
-const filteredProducts = product.filter(value=> value.calories < 250);
-setProduct(filteredProducts);
+// const filteredProducts = product.filter(value=> value.calories < 250);
+// setProduct(filteredProducts);
+products.removeUnhealthyProduct(e);
 }
 
 const removeOne = (e) => {
-console.log(e.target.name);
-const removeOneProduct = product.filter(value => value.name !== e.target.name);
-setProduct(removeOneProduct);
+// console.log(e.target.name);
+// const removeOneProduct = product.filter(value => value.name !== e.target.name);
+// setProduct(removeOneProduct);
+products.removeOneProduct(e.target.name)
 }
 
 const [editable, setEditable] = useState(false);
@@ -31,9 +36,9 @@ const makeEditable = () => {
 const saveNewProduct = (e, index) => {
 if (e.key === "Enter") {
     setEditable(false);
-    const copyProducts = [...product];
-    copyProducts[index].name = e.target.value;
-    
+    // const copyProducts = [...product];
+    // copyProducts[index].name = e.target.value;
+    products.saveProduct(index, e.target.value);
 }
 }
     return ( 
@@ -43,7 +48,7 @@ if (e.key === "Enter") {
         <h2>Or click the button and remove individual product</h2>
         <h2>Double click on the product, edit it and click enter</h2>
         {
-            product.map((value, index) => {
+            products.product.map((value, index) => {
                return <GroceryItem key={`${index} ${value.name} ${value.calories}`} name={value.name} calories={value.calories} onClick={removeOne} editable={editable}
                onDoubleClick={makeEditable}
                onKeyPress={saveNewProduct}
