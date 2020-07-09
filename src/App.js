@@ -5,6 +5,7 @@ import NameTag from "./componnents/nameTag";
 import Input from "./componnents/Input";
 import GroceryList from "./componnents/GroceryList";
 import Form from "./componnents/Form";
+import Form2 from "./componnents/Form2";
 
 const nameStyle = {color: "blue", border: "blue solid 2px"};
 const MakeGreen = BaseComponent => props => {
@@ -63,6 +64,7 @@ const ageDownHandler = () => {
       <button onClick={ageDownHandler}>Age Down</button>
 <GroceryList />
 <Form />
+<Form2 />
     </div>
   );
 }

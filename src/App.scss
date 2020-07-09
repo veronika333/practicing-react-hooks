@@ -62,3 +62,10 @@ border-radius: 2px;
 body {
   background-color: rgb(214, 241, 252);
 }
+.form-field {
+  display: flex;
+  flex-direction: row;
+  margin: 6px auto;
+width: 300px;
+justify-content: space-between;
+}
