@@ -7,6 +7,7 @@ import GroceryList from "./componnents/GroceryList";
 import Form from "./componnents/Form";
 import Form2 from "./componnents/Form2";
 import Input2 from "./componnents/Input2";
+import PracticeUseEffect from "./componnents/PracticeUseEffect";
 
 //Style fot the Input2 component
 const inputStyle = {
@@ -95,6 +96,7 @@ const ageDownHandler = () => {
 <Input2 ref={firstNameRef} placeholder="Type your firstname here" onKeyDown={onKeyFirstNameHolder} style={inputStyle}>
 </Input2>
 <Input2 ref={lastNameRef} placeholder="Type your lastname here" style={inputStyle}></Input2>
+<PracticeUseEffect />
     </div>
   );
 }
