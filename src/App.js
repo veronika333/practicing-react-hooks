@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import logo from "./logo.svg";
 import "./App.scss";
 import NameTag from "./componnents/nameTag";
@@ -6,6 +6,16 @@ import Input from "./componnents/Input";
 import GroceryList from "./componnents/GroceryList";
 import Form from "./componnents/Form";
 import Form2 from "./componnents/Form2";
+import Input2 from "./componnents/Input2";
+
+//Style fot the Input2 component
+const inputStyle = {
+  margin: "5px",
+  fontSize: "30px",
+  padding: "3px"
+}
+
+
 
 const nameStyle = {color: "blue", border: "blue solid 2px"};
 const MakeGreen = BaseComponent => props => {
@@ -34,6 +44,22 @@ const initialNames = [
 ]
 
 function App() {
+
+  //Ref's for the Input2 component
+const firstNameRef = useRef();
+const lastNameRef = useRef();  
+useEffect(() => {
+firstNameRef.current.focus();
+}, []);
+const onKeyFirstNameHolder = (e) => {
+if (e.key === "Enter") {
+  lastNameRef.current.focus();
+}
+}
+// const onKeyLastNameHolder = (e) => {
+
+// }
+
 const [age, setAge] = useState(21);
 const [name, setName] = useState(initialNames);
 
@@ -65,6 +91,10 @@ const ageDownHandler = () => {
 <GroceryList />
 <Form />
 <Form2 />
+<h1>Input using useRef, forwardRef(), onKeyDown, switches to the next fied if you click Enter</h1>
+<Input2 ref={firstNameRef} placeholder="Type your firstname here" onKeyDown={onKeyFirstNameHolder} style={inputStyle}>
+</Input2>
+<Input2 ref={lastNameRef} placeholder="Type your lastname here" style={inputStyle}></Input2>
     </div>
   );
 }
