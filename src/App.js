@@ -9,6 +9,7 @@ import Form2 from "./componnents/Form2";
 import Input2 from "./componnents/Input2";
 import PracticeUseEffect from "./componnents/PracticeUseEffect";
 import TimeDate from "./componnents/TimeDate";
+import FetchData from "./componnents/FetchData";
 
 //Style fot the Input2 component
 const inputStyle = {
@@ -99,6 +100,7 @@ const ageDownHandler = () => {
 <Input2 ref={lastNameRef} placeholder="Type your lastname here" style={inputStyle}></Input2>
 <PracticeUseEffect />
 <TimeDate />
+<FetchData />
     </div>
   );
 }

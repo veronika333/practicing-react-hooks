@@ -29,7 +29,7 @@ if (age > 60) {
     return ( 
         <div>
         <h1>Studying component lifecicle by using many useEffect</h1>
-        <p>Click the button and grow the age from 0 by tens. When it's 0 6years old the title of the document changes to Maturity Acieved (instead of React App).</p>
+        <p>Click the button and grow the age from 0 by tens. When it's 60 years old the title of the document changes to Maturity Achieved (instead of React App).</p>
     <h2>The age is now { age }</h2>
         <button onClick={ageHandler}>Grow the age</button>
         </div>
