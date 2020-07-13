@@ -10,6 +10,7 @@ import Input2 from "./componnents/Input2";
 import PracticeUseEffect from "./componnents/PracticeUseEffect";
 import TimeDate from "./componnents/TimeDate";
 import FetchData from "./componnents/FetchData";
+import TryUseMemo from "./componnents/TryUseMemo";
 
 //Style fot the Input2 component
 const inputStyle = {
@@ -101,6 +102,7 @@ const ageDownHandler = () => {
 <PracticeUseEffect />
 <TimeDate />
 <FetchData />
+<TryUseMemo />
     </div>
   );
 }

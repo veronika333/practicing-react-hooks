@@ -23,7 +23,7 @@ useEffect(() => {
 
     return ( 
         <div>
-            <h2>Fetching my data from Github API</h2>
+            <h2>Fetching my data from Github API (numbers are updated from github)</h2>
     <p>I have {profile.repositories} repositories and {profile.followers} followers in GitHub.</p>
         </div>
      );
