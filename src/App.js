@@ -11,6 +11,7 @@ import PracticeUseEffect from "./componnents/PracticeUseEffect";
 import TimeDate from "./componnents/TimeDate";
 import FetchData from "./componnents/FetchData";
 import TryUseMemo from "./componnents/TryUseMemo";
+import HookUsePrevious from "./componnents/HookUsePrevious";
 
 //Style fot the Input2 component
 const inputStyle = {
@@ -103,6 +104,7 @@ const ageDownHandler = () => {
 <TimeDate />
 <FetchData />
 <TryUseMemo />
+<HookUsePrevious />
     </div>
   );
 }
