@@ -13,6 +13,7 @@ import FetchData from "./componnents/FetchData";
 import TryUseMemo from "./componnents/TryUseMemo";
 import HookUsePrevious from "./componnents/HookUsePrevious";
 import HookUseLayout from "./componnents/HookUseLayout";
+import HookUseCustomFetch from "./componnents/HookUseCustomFetch";
 
 //Style fot the Input2 component
 const inputStyle = {
@@ -107,6 +108,7 @@ const ageDownHandler = () => {
 <TryUseMemo />
 <HookUsePrevious />
 <HookUseLayout />
+<HookUseCustomFetch />
     </div>
   );
 }

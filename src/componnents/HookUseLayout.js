@@ -22,7 +22,7 @@ const {height, width} = useDimention(numberRef, number)
     return ( 
         <div>
             <h2>Hook useLayoutEffect</h2>
-            <h3>You can click the button, the value will increase by 10, and the width of the element will change</h3>
+            <h3>Change the width of the window, click the button and see the width below (px).</h3>
     <p ref={numberRef}>{number}</p>
     <h3>The heigth of the element is {height} and the width {width}</h3> 
     <button onClick={() => {setNumber(number * 10)}}>Increase by 10</button>
