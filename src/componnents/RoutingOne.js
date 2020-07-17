@@ -1,13 +1,19 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link, NavLink } from 'react-router-dom';
 import AboutPage from "../pages/AboutPage";
 
 const RoutingOne = () => {
     return ( 
         <BrowserRouter>
         <div>
+            <h2>React Routing</h2>
+            <ul>
+                <li><NavLink to="/home" exact activeClassName="active-link">Home</NavLink></li>
+                <li><NavLink to="/about" exact activeClassName="active-link">About</NavLink></li>
+                <li><NavLink to="/user/joonas/tuominen" exact activeClassName="active-link">User Joonas Tuominen</NavLink></li>
+            </ul>
 <Route path="/home" exact render={() => {
-    return (<div>Hi! It's a home page</div>)
+    return (<h2>Hi! It's a home page</h2>)
 }} />
 
 <Route path="/about" exact component={AboutPage} />
