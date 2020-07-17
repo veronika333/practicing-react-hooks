@@ -19,7 +19,7 @@ setUrl("https://api.github.com/users/" + e.target.value);
        <input onKeyPress={getGithubFollowers}></input>
        {loading && url && <div>Loading...</div>}
        {!loading && data && data.responseData && data.responseData.followers && <div>You have {data.responseData.followers} followers</div> }
-    {error && <div>{error}</div>} 
+    {error && <div>there is an error {error}</div>} 
        </h2>
         </div>
      );
