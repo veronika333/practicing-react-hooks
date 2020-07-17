@@ -14,6 +14,7 @@ import TryUseMemo from "./componnents/TryUseMemo";
 import HookUsePrevious from "./componnents/HookUsePrevious";
 import HookUseLayout from "./componnents/HookUseLayout";
 import HookUseCustomFetch from "./componnents/HookUseCustomFetch";
+import RoutingOne from "./componnents/RoutingOne";
 
 //Style fot the Input2 component
 const inputStyle = {
@@ -109,6 +110,7 @@ const ageDownHandler = () => {
 <HookUsePrevious />
 <HookUseLayout />
 <HookUseCustomFetch />
+<RoutingOne />
     </div>
   );
 }
