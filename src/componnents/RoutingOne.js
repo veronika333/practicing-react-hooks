@@ -1,23 +1,33 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Link, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Link, NavLink, Redirect, Prompt } from 'react-router-dom';
 import AboutPage from "../pages/AboutPage";
 
 const RoutingOne = () => {
 
     const [loggedin, setLoggedin] = useState(false);
+    const [age, setAge] = useState(null);
+
     function loginHandler(){
         setLoggedin(!loggedin);
     }
 
+function ageHandler(e) {
+    setAge(e.target.value);
+}
+
     return ( 
         <BrowserRouter>
         <div>
-            <h2>React Routing, Redirect, Button changes(login/logout)</h2>
-            <ul>
-                <li><NavLink to="/home" exact activeClassName="active-link">Home</NavLink></li>
-                <li><NavLink to="/about" exact activeClassName="active-link">About</NavLink></li>
-                <li><NavLink to="/user/joonas/tuominen" exact activeClassName="active-link">User Joonas Tuominen</NavLink></li>
+            <h2>React Routing, Redirect, Button changes(login/logout), Prompt</h2>
+            <p>Click User Joonas Tuominen, try to click other link withou completing the age and you will see a prompt.</p>
+            <ul className="ul-style">
+                <li className="li-style"><NavLink to="/home" exact activeClassName="active-link">Home</NavLink></li>
+                <li className="li-style"><NavLink to="/about" exact activeClassName="active-link">About</NavLink></li>
+                <li className="li-style"><NavLink to="/user/joonas/tuominen" exact activeClassName="active-link">User Joonas Tuominen</NavLink></li>
             </ul>
+            <Prompt when={loggedin && !age} message={(location)=> {
+                return location.pathname.startsWith("/user") ? true : ("Are you sure you want to leave the page?")
+            }}></Prompt>
             {/* {loggedin.toString()} */}
     <button onClick={loginHandler}>{loggedin ? "logout" : "login"}</button>
 <Route path="/home" exact render={() => {
@@ -26,7 +36,14 @@ const RoutingOne = () => {
 
 <Route path="/about" exact component={AboutPage} />
 <Route path="/user/:firstname/:lastname" exact render={({match}) => {
-    return loggedin ? (<h2>Hi user {match.params.firstname} {match.params.lastname}</h2>)
+    return loggedin ? (
+    <div>
+    <h2>Hi user {match.params.firstname} {match.params.lastname}</h2>
+    <p>Please type your age below:</p>
+        <input type="text" onChange={ageHandler}></input>
+        <p>You have typed {age}</p>
+        </div>
+        )
     : (<Redirect to="/home" />)
 }} />
         </div>

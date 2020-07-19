@@ -28,6 +28,7 @@ $color: brown;
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {
@@ -71,5 +72,21 @@ justify-content: space-between;
 }
 .active-link {
   color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+.ul-style {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  text-decoration: none;
+}
+.li-style {
+  margin: 10px;
+  list-style-type: none;
+  text-decoration: none;
+}
+.li-style:hover {
   font-weight: bold;
 }
