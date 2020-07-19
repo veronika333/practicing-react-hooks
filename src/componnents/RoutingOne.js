@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BrowserRouter, Route, Link, NavLink, Redirect, Prompt } from 'react-router-dom';
 import AboutPage from "../pages/AboutPage";
+import messageContext from "../contexts/messageContext";
+import HomePage from "../pages/HomePage";
+
 
 const RoutingOne = () => {
 
     const [loggedin, setLoggedin] = useState(false);
     const [age, setAge] = useState(null);
+    const [message, setMessage] = useState("This is a message shared by Context");
 
     function loginHandler(){
         setLoggedin(!loggedin);
@@ -17,8 +21,9 @@ function ageHandler(e) {
 
     return ( 
         <BrowserRouter>
+        <messageContext.Provider value={[message, setMessage]}>
         <div>
-            <h2>React Routing, Redirect, Button changes(login/logout), Prompt</h2>
+            <h2>React Routing, Redirect, Button changes(login/logout), Prompt, useContext</h2>
             <p>Click User Joonas Tuominen, try to click other link withou completing the age and you will see a prompt.</p>
             <ul className="ul-style">
                 <li className="li-style"><NavLink to="/home" exact activeClassName="active-link">Home</NavLink></li>
@@ -30,9 +35,11 @@ function ageHandler(e) {
             }}></Prompt>
             {/* {loggedin.toString()} */}
     <button onClick={loginHandler}>{loggedin ? "logout" : "login"}</button>
-<Route path="/home" exact render={() => {
-    return (<h2>Hi! It's a home page</h2>)
-}} />
+<Route path="/home" exact 
+// render={() => {
+//     return (<h2>Hi! It's a home page</h2>)}} 
+    component={HomePage}
+    />
 
 <Route path="/about" exact component={AboutPage} />
 <Route path="/user/:firstname/:lastname" exact render={({match}) => {
@@ -47,6 +54,7 @@ function ageHandler(e) {
     : (<Redirect to="/home" />)
 }} />
         </div>
+        </messageContext.Provider>
         </BrowserRouter>
      );
 }

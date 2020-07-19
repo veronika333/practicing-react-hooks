@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import messageContext from "../contexts/messageContext";
 
 const AboutPage = () => {
     return ( 
-        <div>
+        <>
             <h2>Hi! It's about page</h2>
-        </div>
+    <p>Message: {useContext(messageContext)}</p>
+        </>
      );
 }
  
